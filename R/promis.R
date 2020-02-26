@@ -132,6 +132,7 @@ promis_domains <- function(domain) {
 #' @examples
 #' label_promis("physfx", 42)
 label_promis <- function(domain, score) {
+  sdomain <- standardize_promis(domain)
   switch(domain,
          physfx = promis_domains("physfx")(score),
          paininter = promis_domains("paininter")(score),
