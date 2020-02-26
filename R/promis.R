@@ -13,6 +13,26 @@ check_promis <- function(x) {
   )
 }
 
+possible_promis_names <-
+  list(
+    physfx = c("physfx", "Physical function"),
+    paininter = c("paininter"),
+    paininten = c("paininten"),
+    gphys = c("gphys"),
+    gment = c("gment"),
+    dep = c("dep")
+  )
+
+standardize_promis <- function(domain) {
+  . <- lapply(possible_promis_names, function(x) {
+    stringr::str_which(string = domain,
+                       pattern = x)
+  })
+  . <- lapply(., length)
+  . <- names(which(. == 1))
+  return(.)
+}
+
 #' Function factory for PROMIS score clinical labels
 #'
 #' @param domain the PROMIS domain, a string.
@@ -24,7 +44,9 @@ check_promis <- function(x) {
 #' promis_domains("physfx")(42)
 promis_domains <- function(domain) {
 
-  if (domain == "physfx") {
+  sdomain <- standardize_promis(domain)
+
+  if (sdomain == "physfx") {
     function(x) {
       . <- check_promis(x)
       if (!is.null(.)) return(.)
@@ -36,7 +58,7 @@ promis_domains <- function(domain) {
     }
   }
 
-  else if (domain == "paininter") {
+  else if (sdomain == "paininter") {
     function(x) {
       . <- check_promis(x)
       if (!is.null(.)) return(.)
@@ -48,7 +70,7 @@ promis_domains <- function(domain) {
     }
   }
 
-  else if (domain == "paininten") {
+  else if (sdomain == "paininten") {
     function(x) {
       . <- check_promis(x)
       if (!is.null(.)) return(.)
@@ -60,7 +82,7 @@ promis_domains <- function(domain) {
     }
   }
 
-  else if (domain == "gphys") {
+  else if (sdomain == "gphys") {
     function(x) {
       . <- check_promis(x)
       if (!is.null(.)) return(.)
@@ -73,7 +95,7 @@ promis_domains <- function(domain) {
     }
   }
 
-  else if (domain == "gment") {
+  else if (sdomain == "gment") {
     function(x) {
       . <- check_promis(x)
       if (!is.null(.)) return(.)
@@ -86,7 +108,7 @@ promis_domains <- function(domain) {
     }
   }
 
-  else if (domain == "dep") {
+  else if (sdomain == "dep") {
     function(x) {
       . <- check_promis(x)
       if (!is.null(.)) return(.)
