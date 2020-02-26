@@ -8,7 +8,7 @@ check_promis <- function(x) {
     }, error = function(e) {
       warning("PROMIS score outside of bounds, returning NA",
               call. = F)
-      NA_character_
+      return(NA_character_)
     }
   )
 }
@@ -26,7 +26,9 @@ promis_domains <- function(domain) {
 
   if (domain == "physfx") {
     function(x) {
-      check_promis(x)
+      . <- check_promis(x)
+      if (!is.null(.)) return(.)
+
       if (x >= 45) "Normal limits"
       else if (x >= 40) "Mild"
       else if (x >= 30) "Moderate"
@@ -36,7 +38,9 @@ promis_domains <- function(domain) {
 
   else if (domain == "paininter") {
     function(x) {
-      check_promis(x)
+      . <- check_promis(x)
+      if (!is.null(.)) return(.)
+
       if (x <= 55) "Normal limits"
       else if (x <= 60) "Mild"
       else if (x <= 70) "Moderate"
@@ -46,7 +50,9 @@ promis_domains <- function(domain) {
 
   else if (domain == "paininten") {
     function(x) {
-      check_promis(x)
+      . <- check_promis(x)
+      if (!is.null(.)) return(.)
+
       if (x <= 55) "Normal limits"
       else if (x <= 60) "Mild"
       else if (x <= 70) "Moderate"
@@ -56,7 +62,9 @@ promis_domains <- function(domain) {
 
   else if (domain == "gphys") {
     function(x) {
-      check_promis(x)
+      . <- check_promis(x)
+      if (!is.null(.)) return(.)
+
       if (x >= 58) "Excellent"
       else if (x >= 50) "Very good"
       else if (x >= 42) "Good"
@@ -67,7 +75,9 @@ promis_domains <- function(domain) {
 
   else if (domain == "gment") {
     function(x) {
-      check_promis(x)
+      . <- check_promis(x)
+      if (!is.null(.)) return(.)
+
       if (x >= 56) "Excellent"
       else if (x >= 48) "Very good"
       else if (x >= 40) "Good"
@@ -78,7 +88,9 @@ promis_domains <- function(domain) {
 
   else if (domain == "dep") {
     function(x) {
-      check_promis(x)
+      . <- check_promis(x)
+      if (!is.null(.)) return(.)
+
       if (x <= 55) "Normal limits"
       else if (x <= 60) "Mild"
       else if (x <= 70) "Moderate"
