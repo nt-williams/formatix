@@ -1,6 +1,16 @@
 
 check_promis <- function(x) {
-  if (x < 20 | x > 80) stop("PROMIS score outside of bounds")
+  tryCatch(
+    if (x < 20 | x > 80) {
+      stop()
+    } else {
+      on.exit()
+    }, error = function(e) {
+      warning("PROMIS score outside of bounds, returning NA",
+              call. = F)
+      NA_character_
+    }
+  )
 }
 
 #' Function factory for PROMIS score clinical labels
