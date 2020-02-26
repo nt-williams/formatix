@@ -1,4 +1,5 @@
 
+#' @export
 new_glue <- function(..., stnc) {
   dots <- list(...)
   n <- length(dots)
