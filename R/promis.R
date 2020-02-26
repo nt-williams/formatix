@@ -33,6 +33,26 @@ standardize_promis <- function(domain) {
   return(.)
 }
 
+#' Create pretty PROMIS labels
+#'
+#' @param domain the PROMIS domain, a string.
+#'
+#' @return the prettified domain lable, a string.
+#' @export
+#'
+#' @examples
+#' pretty_promis_labels("physfx")
+pretty_promis_labels <- function(domain) {
+  sdomain <- standardize_promis(domain)
+
+  if (sdomain == "physfx") "Physical function"
+  else if (sdomain == "paininter") "Pain interference"
+  else if (sdomain == "paininten") "Pain intensity"
+  else if (sdomain == "gphys") "Global physical health"
+  else if (sdomain == "gment") "Global mental health"
+  else if (sdomain == "dep") "Depression"
+}
+
 #' Function factory for PROMIS score clinical labels
 #'
 #' @param domain the PROMIS domain, a string.
