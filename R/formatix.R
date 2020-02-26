@@ -1,8 +1,8 @@
 
-#' Combine bounds for presentation.
+#' Combine bounds for presentation
 #'
-#' @param df a dataframe or tibble
-#' @param label name of the new column
+#' @param df a dataframe or tibble.
+#' @param label name of the new column.
 #'
 #' @return
 #' @export
@@ -12,12 +12,12 @@ combine_ci <- function(df, label) {
   return(out)
 }
 
-#' Format digits to be a specific length.
+#' Format digits to be a specific length
 #'
-#' @param x a numeric object
-#' @param n the number of digits to follow the decimal
+#' @param x a numeric object.
+#' @param n the number of digits to follow the decimal.
 #'
-#' @return a character representation of the original input with the formatted digits
+#' @return a character representation of the original input with the formatted digits.
 #' @export
 #'
 #' @examples
@@ -26,11 +26,11 @@ format_digits <- function(x, n) {
   format(round(as.double(x), digits = n), nsmall = n, trim = TRUE)
 }
 
-#' Wrap text in paranthesis.
+#' Wrap text in paranthesis
 #'
-#' @param x a character or numeric value
+#' @param x a character or numeric value.
 #'
-#' @return a character representation of the original input surrounded in parenthesis
+#' @return a character representation of the original input surrounded in parenthesis.
 #' @export
 #'
 #' @examples

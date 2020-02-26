@@ -2,18 +2,18 @@
 % Please edit documentation in R/formatix.R
 \name{combine_ci}
 \alias{combine_ci}
-\title{Combine bounds for presentation.}
+\title{Combine bounds for presentation}
 \usage{
 combine_ci(df, label)
 }
 \arguments{
-\item{df}{a dataframe or tibble}
+\item{df}{a dataframe or tibble.}
 
-\item{label}{name of the new column}
+\item{label}{name of the new column.}
 }
 \value{
 
 }
 \description{
-Combine bounds for presentation.
+Combine bounds for presentation
 }

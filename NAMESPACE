@@ -2,4 +2,6 @@
 
 export(combine_ci)
 export(format_digits)
+export(label_promis)
+export(promis_domains)
 export(wrap_parenthesis)
