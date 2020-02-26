@@ -36,21 +36,25 @@ standardize_promis <- function(domain) {
 #' Create pretty PROMIS labels
 #'
 #' @param domain the PROMIS domain, a string.
+#' @param capitalize logical, should the first word be capitalized. Default is TRUE.
 #'
 #' @return the prettified domain lable, a string.
 #' @export
 #'
 #' @examples
 #' pretty_promis_labels("physfx")
-pretty_promis_labels <- function(domain) {
+pretty_promis_labels <- function(domain, capitalize = T) {
   sdomain <- standardize_promis(domain)
 
-  if (sdomain == "physfx") "Physical function"
-  else if (sdomain == "paininter") "Pain interference"
-  else if (sdomain == "paininten") "Pain intensity"
-  else if (sdomain == "gphys") "Global physical health"
-  else if (sdomain == "gment") "Global mental health"
-  else if (sdomain == "dep") "Depression"
+  if (sdomain == "physfx") . <- "Physical function"
+  else if (sdomain == "paininter") . <- "Pain interference"
+  else if (sdomain == "paininten") . <- "Pain intensity"
+  else if (sdomain == "gphys") . <- "Global physical health"
+  else if (sdomain == "gment") . <- "Global mental health"
+  else if (sdomain == "dep") . <- "Depression"
+
+  if (!capitalize) . <- stringr::str_to_lower(.)
+  return(.)
 }
 
 #' Function factory for PROMIS score clinical labels

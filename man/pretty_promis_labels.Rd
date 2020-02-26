@@ -4,10 +4,12 @@
 \alias{pretty_promis_labels}
 \title{Create pretty PROMIS labels}
 \usage{
-pretty_promis_labels(domain)
+pretty_promis_labels(domain, capitalize = T)
 }
 \arguments{
 \item{domain}{the PROMIS domain, a string.}
+
+\item{capitalize}{logical, should the first word be capitalized. Default is TRUE.}
 }
 \value{
 the prettified domain lable, a string.
