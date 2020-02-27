@@ -15,4 +15,5 @@ Imports:
     dplyr,
     tidyr,
     stringr,
-    glue
+    glue,
+    gtsummary
