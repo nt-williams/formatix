@@ -15,6 +15,10 @@ wcmtheme.gtsummary_options <- function() {
        ) %>% gt::tab_style(
        style = list(gt::cell_text(font = 'Roboto Condensed')),
          location = gt::cells_column_labels(columns = dplyr::everything())
+       ) %>%
+       gt::tab_style(
+       style = list(gt::cell_text(font = 'Roboto Condensed')),
+       location = gt::cell_column_spanners(spanner = dplyr::everything())
        ) %>% gt::tab_options(
        table.font.size = 13.5,
          data_row.padding = gt::px(1),
