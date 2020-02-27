@@ -29,11 +29,6 @@ interpreter <- function(stnc) {
                        substitute(...),
                        stnc = stnc))
   arg <- alist(... = )
-  capture_dots <- alist({ dots <- list(...)
-  n <- length(dots)
-  for (i in 1:n) {
-    assign(names(dots[i]), dots[[i]])}
-  })
   as.function(c(arg, body))
 }
 
