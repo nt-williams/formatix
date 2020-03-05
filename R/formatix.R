@@ -7,7 +7,7 @@
 #' @return
 #' @export
 combine_ci <- function(df, label) {
-  out <- tidyr::unite(df, !! label, contains("low"), contains("high"), sep = ", ")
+  out <- tidyr::unite(df, !! label, contains("low", "lower"), contains("high", "upper"), sep = ", ")
   out <- dplyr::mutate(out, !! label := paste0("(", .data[[label]], ")"))
   return(out)
 }
