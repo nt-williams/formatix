@@ -58,7 +58,7 @@ read_excel <- function(path, sheet = NULL, rows = NULL, columns = NULL,
                        na = "", trim_ws = TRUE, progress = readxl_progress(),
                        .name_repair = "unique") {
 
-  ranges <- purrr::map2(rows, columns, gen_cell_limits)
+  ranges <- purrr::map(columns, ~ gen_cell_limits(rows = rows, .x))
   . <-
     purrr::map_dfc(
       ranges,
