@@ -16,4 +16,9 @@ Imports:
     tidyr,
     stringr,
     glue,
-    gtsummary
+    gtsummary,
+    Rcpp,
+    cellranger,
+    readxl
+LinkingTo: 
+    Rcpp
