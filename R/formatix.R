@@ -3,12 +3,22 @@
 #'
 #' @param df a dataframe or tibble.
 #' @param label name of the new column.
+#' @param low name of the column containing the lower bound of the confidence interval, default is NULL.
+#' @param high name of the column containing the upper bound of the confidence interval, default is NULL.
 #'
-#' @return
+#' @details If both low and high are null, will try and search for the appropriate columns to combine.
+#'
 #' @export
-combine_ci <- function(df, label) {
-  out <- tidyr::unite(df, !! label, contains("low", "lower"), contains("high", "upper"), sep = ", ")
-  out <- dplyr::mutate(out, !! label := paste0("(", .data[[label]], ")"))
+combine_ci <- function(df, label, low = NULL, high = NULL) {
+
+  if (is.null(low) && is.null(high)) {
+    out <- tidyr::unite(df, !! label, contains("low"), contains("high"), sep = ", ")
+    out <- dplyr::mutate(out, !! label := paste0("(", .data[[label]], ")"))
+  } else {
+    out <- tidyr::unite(df, !! label, low, high, sep = ", ")
+    out <- dplyr::mutate(out, !! label := paste0("(", .data[[label]], ")"))
+  }
+
   return(out)
 }
 

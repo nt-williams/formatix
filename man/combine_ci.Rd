@@ -4,16 +4,20 @@
 \alias{combine_ci}
 \title{Combine bounds for presentation}
 \usage{
-combine_ci(df, label)
+combine_ci(df, label, low = NULL, high = NULL)
 }
 \arguments{
 \item{df}{a dataframe or tibble.}
 
 \item{label}{name of the new column.}
-}
-\value{
 
+\item{low}{name of the column containing the lower bound of the confidence interval, default is NULL.}
+
+\item{high}{name of the column containing the upper bound of the confidence interval, default is NULL.}
 }
 \description{
 Combine bounds for presentation
+}
+\details{
+If both low and high are null, will try and search for the appropriate columns to combine.
 }
