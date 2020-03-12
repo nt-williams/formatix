@@ -13,11 +13,11 @@ knitr::opts_chunk$set(
 )
 ```
 
-> The personal computing toolbox of Nick Williams
-
 # formatix
 
-`formatix` is a general R computing toolbox. R functions provide support for text formatting problems (with a focus on statistical reports), an interpretation generator, and lazy deconstructing and global environment assignment of data frame and list objects. `formatix` is updated frequently as new problems are encountered that do not have existing solutions.
+> The personal computing toolbox of Nick Williams
+
+`formatix` is a general R computing toolbox. Included functions provide support for text formatting problems (with a focus on statistical reports), an interpretation generator, and lazy deconstructing and global environment assignment of data frame and list objects. `formatix` is updated frequently as new problems are encountered that do not have existing solutions.
 
 ## Installation
 
