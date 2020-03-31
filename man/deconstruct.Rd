@@ -4,7 +4,7 @@
 \alias{deconstruct}
 \title{Deconstruct a dataframe or list into vectors available in the global environment}
 \usage{
-deconstruct(x)
+deconstruct(x, envir)
 }
 \arguments{
 \item{x}{a dataframe or list to deconstruct}

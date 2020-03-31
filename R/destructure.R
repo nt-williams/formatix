@@ -7,11 +7,11 @@
 #'
 #' @examples
 #' deconstruct(mtcars)
-deconstruct <- function(x) {
+deconstruct <- function(x, envir) {
   . <- DataFrameToList(x)
   n. <- names(.)
 
   for (i in 1:length(.)) {
-    assign(n.[i], .[[i]], envir = .GlobalEnv)
+    assign(n.[i], .[[i]], envir = envir)
   }
 }
